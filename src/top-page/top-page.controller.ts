@@ -1,15 +1,13 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from "@nestjs/common";
-import { FindProductDto } from "./dto/find-product.dto";
-import { ProductModel } from "./product.model";
+import {  TopPagesModel } from "./top-page.mobel";
+import { FindTopPageDto } from "./dto/find-top-page.dto";
 
-
-@Controller("product")
+@Controller("top-page")
 export class ProductController {
 
   @Post("create")
   //Omit позволяет указать что именно Не учитывать при приняти dto в параметрах запроса
-  async create(@Body() dto: Omit<ProductModel, "_id">) {
-
+  async create(@Body() dto: Omit<TopPagesModel, "_id">) {
   }
 
   @Get(":id")
@@ -23,13 +21,13 @@ export class ProductController {
   }
 
   @Patch(":id")
-  async patch(@Param("id") id: string, @Body() dto: ProductModel) {
+  async patch(@Param("id") id: string, @Body() dto: TopPagesModel) {
 
   }
 
   @HttpCode(200)
   @Post()
-  async find(@Body() dto: FindProductDto) {
+  async find(@Body() dto: FindTopPageDto) {
 
   }
 }
